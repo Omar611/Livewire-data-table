@@ -31,6 +31,12 @@ class UsersTable extends Component
     #[Url(history: true)]
     public $orderDirection = 'asc';
 
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+
     public function deleteUser(User $user)
     {
         $user->delete();
