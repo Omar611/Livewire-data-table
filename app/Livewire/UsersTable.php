@@ -17,7 +17,15 @@ class UsersTable extends Component
     #[Rule(['search' => 'nullable|string|min:1|max:255'])]
     public $search = '';
 
+    #[Rule(['userType' => 'nullable|string|in:0,1'])]
     public $userType = '';
+
+    public function deleteUser(User $user)
+    {
+        $user->delete();
+
+        return redirect()->back()->with('success', 'User deleted.');
+    }
 
     public function render()
     {
