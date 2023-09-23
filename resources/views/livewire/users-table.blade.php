@@ -35,11 +35,126 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("name")'>name</th>
-                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("email")'>email</th>
-                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("is_admin")'>Role</th>
-                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("created_at")'>Joined</th>
-                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("updated_at")'>Last update</th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("name")'>
+                                    <div class="flex items-center">
+                                        <span>name</span>
+                                        @if ($orderBy === 'name')
+                                            @if ($orderDirection === 'asc')
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @else
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("email")'>
+                                    <div class="flex items-center">
+                                        <span>
+                                            email
+                                        </span>
+                                        @if ($orderBy === 'email')
+                                            @if ($orderDirection === 'asc')
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @else
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("is_admin")'>
+                                    <div class="flex items-center">
+                                        <span>
+                                            Role
+                                        </span>
+                                        @if ($orderBy === 'is_admin')
+                                            @if ($orderDirection === 'asc')
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @else
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer"
+                                    wire:click='setOrderBy("created_at")'>
+                                    <div class="flex items-center">
+                                        <span>
+                                            Joined
+                                        </span>
+                                        @if ($orderBy === 'created_at')
+                                            @if ($orderDirection === 'asc')
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @else
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer"
+                                    wire:click='setOrderBy("updated_at")'>
+                                    <div class="flex items-center">
+                                        <span>
+                                            Last Update
+                                        </span>
+                                        @if ($orderBy === 'updated_at')
+                                            @if ($orderDirection === 'asc')
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @else
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 3a1 1 0 00-.707.293L6.586 6.586a1 1 0 101.414 1.414L10 5.414l2.293 2.293a1 1 0 001.414-1.414L10.707 3.293A1 1 0 0010 3zm0 14a1 1 0 00.707-.293l2.293-2.293a1 1 0 00-1.414-1.414L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l2.293 2.293A1 1 0 0010 17z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </th>
                                 <th scope="col" class="px-4 py-3">
                                     <span class="sr-only">Actions</span>
                                 </th>
