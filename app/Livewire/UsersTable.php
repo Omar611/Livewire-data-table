@@ -23,6 +23,7 @@ class UsersTable extends Component
     #[Rule(['orderBy' => 'nullable|string'])]
     public $orderBy = 'name';
 
+    #[Rule(['orderDirection' => 'nullable|string|in:asc,desc'])]
     public $orderDirection = 'asc';
 
     public function deleteUser(User $user)
