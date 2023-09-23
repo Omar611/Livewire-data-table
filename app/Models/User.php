@@ -42,4 +42,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('name', 'like', "%{$search}%")
+            ->orWhere('email', 'like', "%{$search}%");
+    }
+
+    public function scopeWhereUserType($query, $userType)
+    {
+        if(isset($userType) && $userType !== '') {
+            return $query->where('is_admin', (int)$userType);
+        }
+    }
+
 }
