@@ -22,8 +22,7 @@
                     <div class="flex space-x-3">
                         <div class="flex space-x-3 items-center">
                             <label class="w-40 text-sm font-medium text-gray-900">User Type :</label>
-                            <select
-                                wire:model.live='userType'
+                            <select wire:model.live='userType'
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 <option value="">All</option>
                                 <option value="0">User</option>
@@ -48,7 +47,7 @@
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
-                                <tr class="border-b dark:border-gray-700">
+                                <tr class="border-b dark:border-gray-700" wire:key="{{ $user->id }}">
                                     <th scope="row"
                                         class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $user->name }}</th>
