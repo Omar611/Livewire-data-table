@@ -35,11 +35,11 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-4 py-3">name</th>
-                                <th scope="col" class="px-4 py-3">email</th>
-                                <th scope="col" class="px-4 py-3">Role</th>
-                                <th scope="col" class="px-4 py-3">Joined</th>
-                                <th scope="col" class="px-4 py-3">Last update</th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("name")'>name</th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("email")'>email</th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("is_admin")'>Role</th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("created_at")'>Joined</th>
+                                <th scope="col" class="px-4 py-3 cursor-pointer" wire:click='setOrderBy("updated_at")'>Last update</th>
                                 <th scope="col" class="px-4 py-3">
                                     <span class="sr-only">Actions</span>
                                 </th>

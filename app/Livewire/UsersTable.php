@@ -20,6 +20,11 @@ class UsersTable extends Component
     #[Rule(['userType' => 'nullable|string|in:0,1'])]
     public $userType = '';
 
+    #[Rule(['orderBy' => 'nullable|string'])]
+    public $orderBy = 'name';
+
+    public $orderDirection = 'asc';
+
     public function deleteUser(User $user)
     {
         $user->delete();
@@ -27,11 +32,22 @@ class UsersTable extends Component
         return redirect()->back()->with('success', 'User deleted.');
     }
 
+    public function setOrderBy($field)
+    {
+        if ($this->orderBy === $field) {
+            $this->orderDirection = $this->orderDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->orderBy = $field;
+            $this->orderDirection = 'asc';
+        }
+    }
+
     public function render()
     {
         return view('livewire.users-table', [
             'users' => User::search($this->search)
                 ->whereUserType($this->userType)
+                ->orderBy($this->orderBy, $this->orderDirection)
                 ->paginate($this->perPage),
         ]);
     }
