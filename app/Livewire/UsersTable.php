@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Livewire\Attributes\Rule;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,15 +16,19 @@ class UsersTable extends Component
     public $perPage = 10;
 
     #[Rule(['search' => 'nullable|string|min:1|max:255'])]
+    #[Url(history: true)]
     public $search = '';
 
     #[Rule(['userType' => 'nullable|string|in:0,1'])]
+    #[Url(history: true)]
     public $userType = '';
 
     #[Rule(['orderBy' => 'nullable|string'])]
+    #[Url(history: true)]
     public $orderBy = 'name';
 
     #[Rule(['orderDirection' => 'nullable|string|in:asc,desc'])]
+    #[Url(history: true)]
     public $orderDirection = 'asc';
 
     public function deleteUser(User $user)
